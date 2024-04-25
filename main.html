@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>입체감있는버튼</title>
+    <style>
+        /* 헤더와 푸터 스타일 */
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1, footer h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* 슬라이드 쇼 스타일 */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* 이미지를 부모 요소에 꽉 차게 만들기 위해 높이를 100%로 설정 */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .slideshow-container img {
+            width: 100%;
+            height: 100%; /* 이미지를 부모 요소에 꽉 차게 만들기 위해 높이를 100%로 설정 */
+            display: block;
+            border-radius: 8px;
+            object-fit: cover; /* 이미지가 요소에 맞게 잘리지 않고 꽉 채워지도록 함 */
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>헤더</h1>
+</header>
+
+<div class="slideshow-container">
+    <img class="mySlides" src="다운로드.jpg" alt="Image 1">
+    <img class="mySlides" src="image2.jpg" alt="Image 2">
+    <img class="mySlides" src="image3.jpg" alt="Image 3">
+</div>
+
+<footer>
+    <h2>푸터</h2>
+</footer>
+
+<script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 5 seconds
+    }
+</script>
+
+</body>
+</html>

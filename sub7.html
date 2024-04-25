@@ -1,0 +1,322 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>밴드 소개</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+
+
+
+            .header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* 맨 오른쪽으로 정렬 */
+    align-items: center;
+}
+
+.header-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.header-link:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+
+    .footer {
+                    background-color: #ffffff;
+                    color: rgb(0, 0, 0);
+                    padding: 20px 0;
+                    border-top: 3px solid rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                }
+
+                .footer-inner {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+                /* 추가된 가운데 정렬 제목 스타일 */
+                .footer-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: center;
+                    flex: 1 0 100%;
+                    margin-bottom: 10px;
+                }
+
+                /* 추가된 작은 글씨 스타일 */
+                .footer-contact {
+                    font-size: 15px;
+                    text-align: center;
+                    flex: 1 0 100%;
+                    margin-bottom: 10px;
+                }
+
+                /* 추가된 회사 정보 스타일 */
+                .footer-company-info {
+                    font-size: 14px;
+                    text-align: center;
+                    flex: 1 0 100%;
+                }
+
+                /* 추가된 소셜 미디어 아이콘 스타일 */
+                .social-media-icons {
+                    text-align: center;
+                    flex: 1 0 100%;
+                }
+
+                .social-media-icons a {
+                    margin: 0 5px;
+                }
+
+                .social-media-icons img {
+                    width: 30px;
+                    height: auto;
+                }
+
+
+
+
+            .container {
+                max-width: 900px;
+                margin: 50px auto;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slides {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .slide {
+                flex: 0 0 100%;
+                text-align: center;
+                height: 600px; /* 슬라이드의 높이를 조절 */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: transform 0.5s ease-in-out;
+                border-radius: 15px; /* 사각형의 4꼭지를 둥글게 만듭니다. */
+                overflow: hidden; /* 내부 내용이 테두리를 벗어나지 않도록 합니다. */
+            }
+
+            .slide img {
+                max-width: 100%; /* 이미지 너비 최대 100%로 설정 */
+                max-height: 400px; /* 이미지 높이 최대 400px로 제한 */
+                width: auto;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .slide-caption {
+                margin-top: 20px;
+                color: #555;
+            }
+
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 30px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 50%;
+                z-index: 2;
+            }
+
+            .prev {
+                left: 20px;
+            }
+
+            .next {
+                right: 20px;
+            }
+
+            .hover-image {
+        width: 20px;
+        height: auto;
+        position: absolute;
+        top: 42px;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateX(-100%);
+    }
+
+            .slide:hover .hover-image {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+            .hover-image.right {
+        right: 260px; /* 이미지를 오른쪽으로 이동 */
+        left: auto; /* 왼쪽 위치 설정 제거 */
+    }
+    .hover-image.left {
+        right: 260px; /* 이미지를 오른쪽으로 이동 */
+        left: auto; /* 왼쪽 위치 설정 제거 */
+    }
+
+    .slide:hover .hover-image.right {
+        transform: translateX(0%);
+    }
+    .slide:hover .hover-image.left {
+        transform: translateX(0%);
+    }
+    p {
+    font-weight: bold;
+}
+
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="header-inner">
+                <a href="index.html" style="text-decoration: none; color: inherit;">bandband</a>
+                <div class="header-menu-icon">
+                    <div class="menu-bar"></div>
+                    <div class="menu-bar"></div>
+                    <div class="menu-bar"></div>
+                </div>
+                <div class="header-links">
+                    <a class="header-link" href="sub.html">introduction</a>
+                    <a class="header-link" href="sub7.html">bands</a>
+                    <a class="header-link" href="sub6.html">album</a>
+                    <a class="header-link" href="sub8.html">master piece</a>
+                    <a class="header-link" href="sub4.html">QNA</a>>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="img/11.jpg" alt="밴드 사진 1">
+                    <img src="img/2121.png" alt="밴드 사진 1 Hover" class="hover-image">
+                    <div class="slide-caption">
+                        <h2>Oasis</h2>
+                        <p>오아시스(Oasis)는 1990년대에 활동했던 영국의 록 밴드로, 브리던 출신의 형제 리암과 노엘 갤러거에 의해 결성되었습니다.
+                            오아시스는 1990년대 중반을 대표하는 브리티시 록 밴드로, 그들의 히트 앨범과 싱글들로 국제적인 성공을 거두었습니다.</p>
+
+                            
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/13.jpg" alt="밴드 사진 1">
+                    <img src="img/qq.png" alt="밴드 사진 1 Hover" class="hover-image left">
+                    <div class="slide-caption">
+                        <h2>Blur</h2>
+                        <p>블러(The Bluetones)는 1990년대에 활동했던 영국의 알터너티브 록 밴드입니다. 1990년 런던에서 결성되어, 마크 모리스(Mark Morriss), 
+                            애덤 데빈포트(Adam Devlin), 에드 체스니(Eddie Chesters), 그리고 스콧 마레(Scott Morriss)로 구성되었습니다.</p>
+                    </div>
+                </div>
+                <!-- 추가적인 슬라이드를 여기에 추가하세요. -->
+                <div class="slide">
+                    <img src="img/14.jpg" alt="밴드 사진 1">
+                    <img src="img/gg.png" alt="밴드 사진 1 Hover" class="hover-image right">
+                    <div class="slide-caption">
+                        <h2> Nirvana</h2>
+                        <p>
+                            물론이죠! 너바나(Nirvana)는 1990년대 초기에 활동했던 미국의 록 밴드로, 그들의 음악은 그 당시 음악 산업에 큰 변화를 가져온 중요한 역할을 했습니다. 
+                            너바나는 워싱턴 주에서 결성되었으며, 커트 코베인(Kurt Cobain)이 보컬과 기타, 크리스 노보세릭(Chris Novoselic)이 베이스, 그리고 데이브 그롤(Dave Grohl)이 드럼을 맡았습니다.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/15.jpg" alt="밴드 사진 1">
+                    <img src="img/zz.png" alt="밴드 사진 1 Hover" class="hover-image">
+                    <div class="slide-caption">
+                        <h2>Green Day</h2>
+                        <p>그린데이(Green Day)는 1980년대 후반에 결성된 미국의 펑크 록 밴드로, 비밀리 알씨(Sweet Children)라는 이름으로 활동을 시작했습니다.
+                            오리건 출신인 빌리 조 암스트롱(Billie Joe Armstrong)과 마이크 디린트(Mike Dirnt), 그리고 트레 쿠울(Tre Cool)로 구성된 이 밴드는 1990년대 펑크 록 리바이벌의 중심에 있었습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlide(1)">&#10095;</a>
+        </div>
+        <div class="footer">
+            <div class="social-media-icons">
+                <img src="img/777.png" alt="Facebook">
+                <img src="img/aa.png" alt="Twitter">
+                <img src="img/hh.png" alt="Instagram">
+            </div>
+            <p>© 2024 bandband. All Rights Reserved.</p>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlide(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                let i;
+                const slides = document.querySelectorAll(".slide");
+                const container = document.querySelector(".slides");
+
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+
+                container.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.transform = `translateX(${i * 100 - (slideIndex - 1) * 100}%)`;
+                }
+            }
+        </script>
+
+    </body>
+
+    </html>

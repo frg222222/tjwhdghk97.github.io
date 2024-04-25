@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'NewFont', sans-serif;
+        color: white;
+        /* 기존 배경색 제거 */
+        background-color: transparent;
+        /* 움직이는 GIF 이미지 파일명을 직접 지정하여 추가 */
+        background-image: url("img/ww.gif");
+        /* 배경 이미지 크기 및 반복 설정 */
+        background-size: cover; /* 배경 이미지를 화면에 맞게 조정 */
+        background-repeat: no-repeat; /* 이미지 반복 제거 */
+        }
+
+        header {
+            background-color: transparent;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .date-time {
+            margin-right: 20px;
+            color: rgb(255, 0, 64);
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(255, 0, 64); /* 기본 텍스트 색상 변경 */
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* 애니메이션 추가 */
+        }
+
+        .nav-link:hover {
+            transform: scale(1.1);
+            color: white; /* 호버시 텍스트 색상 변경 */
+        }
+
+        a.main-text {
+            text-decoration: none;
+            font-size: 80px;
+            font-weight: bold; 
+            margin-bottom: 20px;
+            display: block;
+            color: rgb(255, 0, 64);
+            transition: transform 0.3s ease-in-out; /* 애니메이션 추가 */
+        }
+
+        a.main-text:hover {
+            transform: scale(1.1);
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* 추가된 스타일: 네비게이션 메뉴 스타일 */
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(255, 0, 64);
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* 애니메이션 추가 */
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            color: white; /* 호버시 텍스트 색상 변경 */
+        }
+
+        /* 추가된 스타일: 각 메뉴에 대한 클래스와 애니메이션 설정 */
+        .menu-item {
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+            color: white; /* 호버시 텍스트 색상 변경 */
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* 푸터 배경색 */
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        footer p {
+            margin: 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-links">
+        </div>
+        <div class="date-time" id="date-time"></div>
+    </header>
+    <a href="sub.html" class="main-text">introduction page</a>
+
+    <!-- 추가된 내용: 네비게이션 메뉴 -->
+    <nav>
+        <a class="header-link" href="sub7.html">bands</a>
+        <a class="header-link" href="sub6.html">album</a>
+        <a class="header-link" href="sub8.html">masterpiece</a> 
+        <a class="header-link" href="sub4.html">QNA</a>>
+    </nav>
+    <footer>
+        <p>&copy; 2024 Your Website Name</p>
+    </footer>
+
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById("date-time");
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+            const dateTimeString = now.toLocaleDateString('ko-KR', options);
+            dateTimeElement.textContent = dateTimeString;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+</body>
+</html>

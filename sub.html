@@ -1,0 +1,462 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>SurgFM 스타일 버튼</title>
+        <style>
+        
+            body, html {
+                font-family: 'Pretendard 보통', sans-serif;
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, sans-serif;
+            }
+
+            .header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* 맨 오른쪽으로 정렬 */
+    align-items: center;
+}
+
+.header-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.header-link:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+            @media screen and (max-width: 768px) {
+                .header-links {
+                    display: none;
+                }
+
+                .header-menu-icon {
+                    display: block;
+                }
+            }
+
+            .content {
+                padding-top: 100px;
+                padding-bottom: 30px;
+                text-align: center;
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .content p {
+                font-size: 15px;
+            }
+
+            .underline, .footer-line {
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                margin: 20px 0;
+            }
+
+            .rock-and-roll-container {
+                margin: 20px 0;
+                overflow: hidden;
+                position: relative;
+                height: 50px;
+            }
+
+            .rock-and-roll {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                display: flex;
+                justify-content: space-between;
+                width: 300%;
+                animation: move 10s infinite linear;
+            }
+
+            .rock, .and, .roll {
+                font-size: 30px;
+                font-weight: bold;
+                letter-spacing: 5px;
+                width: calc(100% / 3);
+                text-align: center;
+            }
+
+            .flex-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .flex-container > div {
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .text-container {
+                flex: 1.5;
+                text-align: left;
+                margin-bottom: 84px; /* 텍스트를 위로 올리려면 음수값을 사용합니다. */
+    }
+            
+
+            .text-container p, .text-container ul {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .image-container {
+                flex: 1;
+                text-align: right;
+            }
+
+            .image-container img {
+                width: 90%;
+            }
+
+            .separator {
+                width: 2px;
+                height: 100%;
+                background-color: black;
+                margin: 0 20px;
+            }
+
+            .bottom-image-container {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .bottom-image-container1 {
+                text-align: left;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .bottom-image-container2 {
+            text-align: right; /* 이미지를 오른쪽으로 정렬 */
+            margin-top: 50px;
+            margin-bottom: 50px;
+            }
+            .bottom-image-container3 {
+                text-align: left; /* 이미지를 왼쪽으로 정렬합니다. */
+                margin-top: 50px;
+                margin-bottom: 50px;
+                margin-left: 50px; /* 이미지를 오른쪽으로 20px 이동시킵니다. */
+            }
+
+            .bottom-image-container2 img {
+                max-width: 500px; /* 이미지의 최대 가로 너비를 300px로 설정 */
+                height: auto; /* 세로 길이는 자동으로 조정됩니다. */
+            }
+            .bottom-image-container3 img {
+                max-width: 400px; /* 이미지의 최대 가로 너비를 300px로 설정 */
+                height: auto; /* 세로 길이는 자동으로 조정됩니다. */
+            }
+
+            .bottom-image-container img {
+                width: 650px; /* 이미지의 가로 너비를 200px로 설정 */
+                height: auto; /* 세로 길이는 자동으로 조정됩니다. */
+            }
+            .bottom-text-container {
+                text-align: center;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100px; /* 텍스트 컨테이너의 높이 조절 */
+            }
+            .bottom-text-container1 {
+            text-align: left; /* 텍스트를 왼쪽으로 정렬 */
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start; /* 텍스트를 왼쪽으로 이동 */
+            align-items: center;
+            height: 100px; /* 텍스트 컨테이너의 높이 조절 */
+        }
+        .bottom-text-container2 {
+            text-align: right; /* 텍스트를 오른쪽으로 정렬 */
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end; /* 텍스트를 오른쪽으로 이동 */
+            align-items: center;
+            height: 100px; /* 텍스트 컨테이너의 높이 조절 */
+        }
+            .bottom-text-container p {
+                font-size: 20px;
+                line-height: 1.6;
+            }
+            .bottom-line {
+                width: 80%; /* 선의 너비 조절 */
+                height: 2px;
+                background-color: black;
+                margin: 20px auto; /* 가운데 정렬 */
+            }
+            .vertical-line {
+                width: 4px; /* 선의 두께를 4px로 설정 */
+                height: 80%; /* 선의 높이 */
+                background-color: black; /* 선의 색상을 검은색으로 설정 */
+                margin: 20px auto 0; /* 여기 수정 */
+            }
+            
+
+            /* .vertical-line 다음 요소에 대한 스타일 */
+            .bottom-section {
+                background-color: #000; /* 검은색 배경 설정 */
+                color: #fff; /* 글자색 설정 */
+                padding: 50px 0; /* 아래쪽 패딩 추가 */
+                text-align: center; /* 가운데 정렬 */
+            }
+            /* 푸터 추가 */
+            .footer {
+                    background-color: #ffffff;
+                    color: rgb(0, 0, 0);
+                    padding: 20px 0;
+                    border-top: 3px solid rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                }
+
+                .footer-inner {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+
+                /* 추가된 가운데 정렬 제목 스타일 */
+                .footer-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: center;
+                    flex: 1 0 100%;
+                    margin-bottom: 10px;
+                }
+
+                /* 추가된 작은 글씨 스타일 */
+                .footer-contact {
+                    font-size: 14px;
+                    text-align: center;
+                    flex: 1 0 100%;
+                    margin-bottom: 10px;
+                }
+
+                /* 추가된 회사 정보 스타일 */
+                .footer-company-info {
+                    font-size: 14px;
+                    text-align: center;
+                    flex: 1 0 100%;
+                }
+
+                /* 추가된 소셜 미디어 아이콘 스타일 */
+                .social-media-icons {
+                    text-align: center;
+                    flex: 1 0 100%;
+                }
+
+                .social-media-icons a {
+                    margin: 0 5px;
+                }
+
+                .social-media-icons img {
+                    width: 30px;
+                    height: auto;
+                }
+
+
+            .image-with-text {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-with-text img {
+            max-width: 400px; /* 이미지 최대 너비 지정 */
+            height: auto;
+        }
+
+        .image-with-text h2 {
+        margin-top: -250px; /* 위로 올리고 싶은 만큼의 음수값으로 조정 */
+        margin-left: 60px; /* 이미지와 텍스트 사이 간격 조정 */
+    }
+
+
+            .bottom-text-container {
+        text-align: center; /* 텍스트를 가운데로 정렬 */
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column; /* 요소들을 세로 방향으로 배치 */
+        align-items: center; /* 가로 정렬 */
+        justify-content: center; /* 세로 정렬 */
+        height: 100px; /* 텍스트 컨테이너의 높이 조절 */
+    }
+
+    .bottom-text-container p {
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 30px; /* 여기 값을 조정하세요 */
+    }
+
+    .bottom-text-container h3 {
+        font-size: 16px;
+        margin: 0;
+        margin-bottom: 30px; /* 여기 값을 조정하세요 */
+    }
+    .bottom-image-container3 h2 {
+        font-size: 36px; /* 원하는 크기로 조정하세요 */
+    }
+    p {
+        font-weight: bold;
+    }
+
+
+            @keyframes move {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-200%); }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-inner">
+                <a href="index.html" style="text-decoration: none; color: inherit;">bandband</a>
+                <div class="header-menu-icon">
+                    <div class="menu-bar"></div>
+                    <div class="menu-bar"></div>
+                    <div class="menu-bar"></div>
+                </div>
+                <div class="header-links">
+                    <a class="header-link" href="sub.html">introduction</a>
+                    <a class="header-link" href="sub7.html">bands</a>
+                    <a class="header-link" href="sub6.html">album</a>
+                    <a class="header-link" href="sub8.html">masterpiece</a>
+                    <a class="header-link" href="sub4.html">QNA</a>>
+                </div>
+            </div>
+        </div>
+    <div class="content">
+        <h1>Welcome to Rock Band!</h1>
+        <p>당신은 밴드에 대해서 어디까지 알고 계시나요?</p>
+        <img src="img/126.jpg" alt="SurgFM Image" style="width: 25%;">
+        <p>'band'란 ? , 음악을 연주하는 단체인 '악단'을 일컫는 말이다. 원래 영어의 'band'는 록 밴드 뿐만 아니라 오케스트라, 관악기와 타악기 위주로 이루어진<br> 브라스 밴드나 보컬로만 이루어진 보컬 밴드, 팝 밴드, 백스트리트 보이스 등의 보이 밴드 등 악단 전반을 가리키는 말이어서 'musical group'나 'musical band'나 의미에 큰 차이가 없다.</p>
+        <div class="underline"></div>
+        <div class="rock-and-roll-container">
+            <div class="rock-and-roll">
+                <div class="rock">ROCK</div>
+                <div class="and">AND</div>
+                <div class="roll">ROLL</div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>    
+
+    <div class="flex-container">
+        <div class="text-container">
+            <h1>HEAVY METAL?</h1>
+            <div class="bottom-text-container">
+                <p style="text-align: left;">
+                    1960년대 후반부터 1990년대 초반까지 록 음악계의 주류 자리를 차지하고 있었으며, 음악사적으로 굉장히 중요한 장르중 하나이다. 비록 커트 코베인 이후 영향력이 이전에 비해서는 상당히 줄어들었지만, 그럼에도 록 음악이 사양세인 현재에도 하드 록, 팝 록, 펑크 록, 모던 록, 얼터너티브 록과 함께 록 음악 장르중 가장 팬덤이 두터운 장르중 하나다.
+                </p>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="image-container">
+            <img src="img/128.jpg" alt="SurgFM Image">
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <h1 style="text-align: center;">브릿팝의 세대?</h1>  
+    <div class="bottom-image-container">
+        <img src="img/150.jpg" alt="Bottom Image">
+    </div>
+
+    <div class="bottom-text-container">
+        <p>브릿팝은 새로운 유행이 됐고, 블러는 브릿팝 열풍에 선두주자로 자리매김하게 되었다. 특히, 1994년 발표한 3집 Parklife는 블러의 포텐이 
+            <br>본격적으로 터지면서 90년대를 대표하는 명반이라는 평이 대다수일 정도로 이러한 브릿팝 열풍을 제대로 담아냈다는 호평을 받는다</p>
+    </div>
+
+    <div class="vertical-line"></div>
+    <!-- 이하 내용 추가 -->
+
+    <div class="bottom-section"><br><br><br>
+        <h1 style="text-align: center;">ROCK</h1>  
+        <div class="bottom-image-container">
+            <img src="img/129.jpg" alt="Bottom Image">
+        </div>
+
+        <div class="bottom-text-container">
+            <p>Nirvana: The Commodore Ballroom, Vancouver B.C., 1991</p>
+            <h3>
+                록 음악을 연주하는 밴드라는 뜻이다. 경우에 따라서는 추구하는 구체적인 음악 성격을 나타내기 위해 
+                <br>    록 음악의 하위 장르의 이름을 록 대신 붙이기도 하는데, 이를테면 ‘헤비 메탈 밴드’ 혹은 ‘블루스 록 밴드’라고 부르는 식이다.
+                </h3>
+        </div>
+    <br><br><br><br><br><br>
+        <div class="bottom-image-container1">
+            <img src="img/151.jpg" alt="Bottom Image">
+        </div>
+
+        <div class="bottom-text-container1">
+            <p>Nirvana: The Commodore Ballroom, Vancouver B.C., 1991</p>
+        </div>
+
+        <div class="bottom-image-container2">
+            <img src="img/512.jpg" alt="Bottom Image">
+        </div>
+
+        <div class="bottom-text-container2">
+            <p>Nirvana: The Commodore Ballroom, Vancouver B.C., 1991</p>
+        </div>
+    <br><br><br><br>
+    <div class="bottom-image-container3">
+        <div class="image-with-text">
+            <img src="img/89.jpg" alt="Bottom Image">
+            <h2>"서서히 사라지기보다 한 번에 <br>타버리는 것이 낫다"</h2>
+            <h3>-Kurt Donald Cobain</h3>
+        </div>
+    </div>
+    </div>
+    
+
+    <div class="footer">
+            <div class="social-media-icons">
+                <img src="img/777.png" alt="Facebook">
+                <img src="img/aa.png" alt="Twitter">
+                <img src="img/hh.png" alt="Instagram">
+            </div>
+            <p>© 2024 bandband. All Rights Reserved.</p>
+        </div>
+
+    </body>
+    </html>

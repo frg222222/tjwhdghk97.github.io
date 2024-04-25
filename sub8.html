@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밴드 소개</title>
+    <style>
+  body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* 전체 배경색을 흰색으로 설정 */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff; /* 컨테이너 배경색을 흰색으로 설정 */
+            padding: 20px;
+            border-radius: 0; /* 컨테이너의 둥근 모서리를 없앰 */
+            box-shadow: none; /* 컨테이너의 그림자 효과를 없앰 */
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .band-photo {
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+            background-color: transparent; /* 밴드 사진의 배경색을 투명하게 설정하여 박스 형식 제거 */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .band-photo img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .member-info {
+            margin-bottom: 20px;
+        }
+        .member-info h3 {
+            color: #555;
+        }
+        .member-info p {
+            color: #777;
+        }
+        .header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* 맨 오른쪽으로 정렬 */
+    align-items: center;
+}
+
+.header-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.header-link:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+
+
+/* 미디어 쿼리를 사용하여 반응형 디자인 적용 */
+@media screen and (max-width: 768px) {
+.header-links {
+    display: none; /* 작은 화면에서는 메뉴 숨김 */
+}
+
+.header-menu-icon {
+    display: block; /* 작은 화면에서는 메뉴 아이콘 표시 */
+}
+}
+.footer {
+                background-color: #ffffff;
+                color: rgb(0, 0, 0);
+                padding: 20px 0;
+                border-top: 3px solid rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .footer-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            /* 추가된 가운데 정렬 제목 스타일 */
+            .footer-title {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+
+            /* 추가된 작은 글씨 스타일 */
+            .footer-contact {
+                font-size: 15px;
+                text-align: center;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+
+            /* 추가된 회사 정보 스타일 */
+            .footer-company-info {
+                font-size: 14px;
+                text-align: center;
+                flex: 1 0 100%;
+            }
+
+            /* 추가된 소셜 미디어 아이콘 스타일 */
+            .social-media-icons {
+                text-align: center;
+                flex: 1 0 100%;
+            }
+
+            .social-media-icons a {
+                margin: 0 5px;
+            }
+
+            .social-media-icons img {
+                width: 30px;
+                height: auto;
+            }
+        ::selection {
+            background-color: black;
+            color: white;
+        }   
+        .container {
+    /* 기존 스타일 */
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    
+    /* 밑에 선 스타일 추가 */
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 40px;
+        }
+        .small-photo {
+    width: 150px;  /* 작은 사진의 너비 설정 */
+    height: auto; /* 높이 자동 조정 */
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+    border-radius: 5px; /* 둥근 모서리 설정 */
+}
+.small-photo1 {
+    width: 110px;  /* 작은 사진의 너비 설정 */
+    height: auto; /* 높이 자동 조정 */
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+    border-radius: 5px; /* 둥근 모서리 설정 */
+}
+.small-photo2 {
+    width: 110px;  /* 작은 사진의 너비 설정 */
+    height: auto; /* 높이 자동 조정 */
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+    border-radius: 5px; /* 둥근 모서리 설정 */
+}
+p {
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a href="index.html" style="text-decoration: none; color: inherit;">bandband</a>
+            <div class="header-menu-icon">
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+            </div>
+            <div class="header-links">
+                <a class="header-link" href="sub.html">introduction</a>
+                <a class="header-link" href="sub7.html">bands</a>
+                <a class="header-link" href="sub6.html">album</a>
+                <a class="header-link" href="sub8.html">masterpiece</a>
+                <a class="header-link" href="sub4.html">QNA</a>>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="band-photo">
+            <img src="img/11.jpg" alt="밴드 사진">
+        
+        
+        </div>
+        <h2>Oasis</h2>
+        
+        <div class="member-info">
+            <img src="img/2121.png" alt="리암 겔러거 사진" class="small-photo" style="float: right;"> <!-- 오른쪽 정렬 추가 -->
+            <h3>리암 겔러거</h3>
+            <p>역할: 메인 보컬</p>
+            <p>1990년대 영국의 대중음악을 대표하는 작곡가로, 자신의 동생, 데이먼 알반 등과 함께 90년대 영국 대중음악을 논할 빠지지 않는 중요한 인물들 중 한 명으로 평가받는다.</p>
+        </div>
+
+        <div class="member-info">
+            <h3>노엘 겔러거</h3>
+            <p>역할: 기타, 서브 보컬</p>
+            <p>90년대를 대표하는 보컬리스트, 프론트맨 중 한 명이자 자신의 형과 함께 90년대 영국 대중문화를 상징했던 인물 중 한 명이다. 현재 대중들에게 이 시대의 마지막 로큰롤 스타라는 평을 받는다.</p>
+        </div>
+
+        <div class="member-info">
+            <h3>겜 아처</h3>
+            <p>역할: 기타</p>
+            <p>영국의 로큰롤 밴드 오아시스의 기타리스트로 잘 알려져 있다. <br>오아시스 합류 전에는 헤비 스테레오라는 록밴드의 보컬 겸 기타리스트였다. </p>
+        </div>
+          
+        <div class="member-info">
+            <h3>앤디 벨</h3>
+            <p>역할: 베이스</p>
+            <p>슈게이징 밴드 라이드의 기타리스트 겸 보컬이자 메인 작곡가,<Br>오아시스가 해체한 뒤에는 라이드 재결합 전까지 비디 아이의 기타리스트로도 활동했었다.</p>
+        </div>
+
+
+        <!-- 추가적인 멤버 정보를 여기에 추가할 수 있습니다. -->
+        
+    </div>
+    <div class="container">
+        <div class="band-photo">
+            <img src="img/13.jpg" alt="밴드 사진">
+            
+        </div>
+        <h2>Blur</h2>
+        
+        <div class="member-info">
+            <img src="img/qq.png" alt="리암 겔러거 사진" class="small-photo1" style="float: right;"> 
+            <h3>데이먼 알반</h3>
+            <p>역할: 메인 보컬리스트, 세컨드 기타리스트, 키보디스트</p>
+            <p> 블러의 프론트맨이자 리더이며 보컬과 키보드, 기타를 맡고 있고 고릴라즈의 작곡가, 보컬이자 2D의 모델이다. 장르에 구애받지 않는 화려한 음악 이력을 자랑하는 음악가이다.</p>
+        </div>
+        
+        <div class="member-info">
+            <h3>그레이엄 콕슨</h3>
+            <p>역할: 퍼스트 기타리스트, 배킹 보컬리스트</p>
+            <p>기타와 배킹 보컬을 맡았다. 그리고 Think Tank 앨범을 제외한 모든 앨범과 블러 결성에 공헌도가 큰 멤버.<br>특히 셀프 타이틀 앨범에 끼친 영항이 크다.</p>
+        </div>
+
+        <div class="member-info">
+            <h3>알렉스 제임스</h3>
+            <p>역할: 베이시스트</p>
+            <p>영국의 음악가, 저널리스트, 치즈메이커. 덕분에 얻은 별명은 치즈맨. <br>특히 브릿팝 밴드 블러의 베이시스트로 알려져 있다. 그룹 내 최장신이다.</p>
+        </div>  
+
+        <div class="member-info">
+            <h3>데이브 로운트리</h3>
+            <p>역할: 드러머</p>
+            <p>짧영국의 음악가이자 정치인, 변호사, 애니메이터. 블러의 멤버로 잘 알려져있다.</p>
+        </div>
+        
+        
+        
+        </div>
+        <div class="container">
+            <div class="band-photo">
+                <img src="img/14.jpg" alt="밴드 사진">
+            </div>
+            <h2>Nirvana </h2>
+            
+             
+        <div class="member-info">
+            <img src="img/22.png" alt="리암 겔러거 사진" class="small-photo1" style="float: right;"> 
+                <h3>커트 코베인</h3>
+                <p>역할: 보컬 / 기타 / 드럼 등</p>
+                <p>미국의 전 싱어송라이터. 미국의 얼터너티브 록 밴드 너바나의 멤버였다.그의 등장과 함께 메탈이라는 장르 자체가 몰락하며 얼터너티브 록이 록의 주류 장르가 될 정도로 대중 음악사에 큰 영향을 끼쳤다.</p>
+            </div>
+            
+            <div class="member-info">
+                <h3>크리스 노브셀릭</h3>
+                <p>역할: 베이스 / 키보드 / 보컬 등</p>
+                <p>너바나의 베이시스트. 너바나의 리더인 커트 코베인과 고등학생 때부터 매우 친한 친구였기도 하다.</p>
+            </div>
+
+            <div class="member-info">
+                <h3>데이브 그롤</h3>
+                <p>역할: 베이스 / 키보드 / 보컬 등</p>
+                <p>미국의 록 뮤지션. 너바나의 드러머이자 푸 파이터스의 보컬리스트 겸 기타리스트를 담당하고 있다. 너바나에서 함께 활동하였던 커트 코베인의 뒤를 이어 미국의 그런지 씬을 상징하고 있는 인물이다.</p>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="band-photo">
+                <img src="img/15.jpg" alt="밴드 사진">
+            </div>
+            <h2>Green Day</h2>
+            
+             
+        <div class="member-info">
+            <img src="img/pngegg (2).png" alt="리암 겔러거 사진" class="small-photo2" style="float: right;"> 
+                <h3>빌리 조 암스트롱</h3>
+                <p>역할: 보컬, 기타, 피아노, 베이스 기타, 드럼, 만돌린, 색소폰</p>
+                <p>그린 데이에서 리드 보컬과 기타를 담당하고 있으며 그린데이의 곡들 대부분을 작사·작곡하였다. 짧은 흑발 머리에 스모키 메이크업을 한 초록눈, 검정 와이셔츠에 붉은 넥타이를 매고 기타를 길게 늘어뜨려 치는 모습이 특징.</p>
+            </div>
+            
+            <div class="member-info">
+                <h3>마이크 던트</h3>
+                <p>역할: 베이스 기타, 백킹 보컬</p>
+                <p>'마이크 던트(Mike Dirnt)'라는 예명으로 더 잘 알려져 있지만 본명은 '마이클 라이언 프릿처드(Michael Ryan Pritchard)'이다. 빌리 조 암스트롱과 함께 그린 데이를 결성한 원년 멤버로, 베이스 기타와 백업 보컬을 맡고 있다.</p>
+            </div>
+
+            <div class="member-info">
+                <h3>트레 쿨</h3>
+                <p>역할: 드럼,퍼커션</p>
+                <p>1990년부터 그린 데이에 합류하여 드럼과 퍼커션을 맡고 있다.<br> 아주 가끔 리드 보컬을 하기도 한다. 드럼 실력이 굉장히 뛰어나다</p>
+            </div>
+
+            </div>
+            <div class="container">
+                <div class="band-photo">
+                    <img src="img/16.jpg" alt="밴드 사진">
+                </div>
+                <h2>LINKIN PARK</h2>
+                
+                 
+            <div class="member-info">
+                <img src="img/21.png" alt="리암 겔러거 사진" class="small-photo1" style="float: right;"> 
+                    <h3>롭 버든</h3>
+                    <p>역할: 드럼, 백킹 보컬</p>
+                    <p>미국의 드러머로, 린킨 파크의 드러머를 맡고 있다.여담이지만 린킨 파크의 멤버들중 유일하게 77년생이 아니다.</p>
+                </div>
+                
+                <div class="member-info">
+                    <h3>체스터 베닝턴</h3>
+                    <p>역할: 메인 보컬, 리듬 기타</p>
+                    <p>미국의 록 밴드 린킨 파크와 데드 바이 선라이즈, 스톤 템플 파일럿츠의 전 보컬리스트이자 싱어송라이터.<Br>락 역사에 손 꼽히는 미성과 스크리밍 실력을 보유했다는 평가를 받았다</p>
+                </div>
+
+                <div class="member-info">
+                    <h3>브레드 델슨</h3>
+                    <p>역할: 리드 기타, 백킹 보컬</p>
+                    <p>미국의 기타리스트로, 록밴드 린킨 파크에서 리드 기타를 맡고있다.</p>
+                </div>
+
+                <div class="member-info">
+                    <h3>조 한</h3>
+                    <p>역할: 턴테이블, 프로그래밍, 프로듀싱, 사진촬영</p>
+                    <p>Joseph Hahn(조셉 한)은 한국계 미국인 DJ로, 미국의 록밴드인 린킨 파크의 멤버이며,<br> 미스터 한으로 불리기도 한다. 뮤직비디오 감독이자 영화감독으로도 활동하고 있다.</p>
+                </div>
+
+                <div class="member-info">
+                    <h3>마이크 시노다</h3>
+                    <p>역할: 랩, 보컬, 키보드, 리듬 기타</p>
+                    <p>마이크 시노다는 일본계 미국인 음악가이자 싱어송라이터이자 프로듀서이다.<br>린킨 파크에서 래퍼, 키보디스트, 백킹 보컬리스트, 그리고 리듬 기타리스트를 맡고 있다.</p>
+                </div>
+
+                <div class="member-info">
+                    <h3>피닉스 파렐</h3>
+                    <p>역할: 베이스 기타, 백킹 보컬</p>
+                    <p>미국의 베이시스트로, 록 밴드 린킨 파크에서 활동 중이다. 본명보다는 '피닉스'라는 예명으로 더 유명하다.</p>
+                </div>
+                </div>
+                <div class="footer">
+                    <div class="social-media-icons">
+                        <img src="img/777.png" alt="Facebook">
+                        <img src="img/aa.png" alt="Twitter">
+                        <img src="img/hh.png" alt="Instagram">
+                    </div>
+                    <p>© 2024 bandband. All Rights Reserved.</p>
+                </div>
+</body>
+</html>

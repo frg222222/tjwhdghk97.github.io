@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bandband - Albums</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end; /* 맨 오른쪽으로 정렬 */
+    align-items: center;
+}
+
+.header-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.header-link:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+
+.album-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.album-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.album-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.album-card {
+    flex-basis: calc(33.333% - 40px);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.album-image {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.album-image:hover {
+    transform: scale(1.2);
+    width: 240px;
+    height: 240px;
+}
+
+.album-image.no-hover-effect:hover {
+    transform: none;
+    width: 200px;
+    height: 200px;
+}
+
+.album-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.album-description {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+    /* 푸터 추가 */
+    .footer {
+                background-color: #ffffff;
+                color: rgb(0, 0, 0);
+                padding: 20px 0;
+                border-top: 3px solid rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .footer-inner {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            /* 추가된 가운데 정렬 제목 스타일 */
+            .footer-title {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+
+            /* 추가된 작은 글씨 스타일 */
+            .footer-contact {
+                font-size: 14px;
+                text-align: center;
+                flex: 1 0 100%;
+                margin-bottom: 10px;
+            }
+
+            /* 추가된 회사 정보 스타일 */
+            .footer-company-info {
+                font-size: 14px;
+                text-align: center;
+                flex: 1 0 100%;
+            }
+
+            /* 추가된 소셜 미디어 아이콘 스타일 */
+            .social-media-icons {
+                text-align: center;
+                flex: 1 0 100%;
+            }
+
+            .social-media-icons a {
+                margin: 0 5px;
+            }
+
+            .social-media-icons img {
+                width: 30px;
+                height: auto;
+            }
+::selection {
+    background-color: black;
+    color: white;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover; /* 이미지를 중앙에 맞추고, 부모 요소에 맞게 잘라서 표시합니다. */
+}
+
+.modal-text {
+    color: #ffffff;
+    text-align: left; /* 텍스트 정렬을 왼쪽으로 설정합니다. */
+    margin-top: 20px;
+    padding-left: 50px; /* 텍스트의 왼쪽 여백을 추가하여 텍스트를 오른쪽으로 옮깁니다. */
+}
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: #e63900;
+}
+
+.star-rating {
+        margin-top: 10px;
+        font-size: 32px;  /* 별의 크기를 키웁니다. */
+        cursor: pointer;
+    }
+
+    .star {
+        color: #ccc;
+        transition: color 0.3s ease;
+    }
+
+    .rating-value {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .page-title {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 48px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-logo">bandband</div>
+            <div class="header-menu-icon">
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+            </div>
+            <div class="header-links">
+                <a class="header-link" href="main2.html">Home</a>
+                <a class="header-link" href="sub.html">Services</a>
+                <a class="header-link" href="sub7.html">album</a>
+                <a class="header-link" href="sub4.html">QNA</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Albums Section -->
+    <div id="albums" class="album-section">
+        <div class="page-title">Albums</div><br><br><br>
+        <!-- Album Cards -->
+        <div class="album-cards">
+            <div class="album-card">
+                <img class="album-image" src="img/310.png" alt="Classic Hits">
+                <div class="album-name">Nevermind</div>
+                <div class="album-description">artist: nirvana <br>Release date:1991.9.24</div>
+            </div>
+            <div class="album-card">
+                <img class="album-image" src="img/311.jpg" alt="Modern Vibes">
+                <div class="album-name">(What's The Story) Morning Glory?</div>
+                <div class="album-description">artist: oasis <br>Release date:1995.10.2</div>
+            </div>  
+            <div class="album-card">
+                <img class="album-image" src="img/312.png" alt="Jazz Fusion">
+                <div class="album-name">Song 2</div>
+                <div class="album-description">artist: blur <br>Release date:1997.4.7</div>
+            </div>
+            <div class="album-card">
+                <img class="album-image" src="img/313.png" alt="Indie Grooves">
+                <div class="album-name">American Idiot</div>
+                <div class="album-description">artist: green day <br>Release date:2004.9.21</div>
+            </div>
+            <div class="album-card">
+                <img class="album-image" src="img/314.png" alt="Indie Grooves">
+                <div class="album-name">Meteora</div>
+                <div class="album-description">artist: Linkin Park <br>Release date:2003.3.25</div>
+            </div>
+            <div class="album-card">
+                <img class="album-image" src="img/135.jpg" alt="Indie Grooves">
+                <div class="album-name">Sk8er Boi</div>
+                <div class="album-description">artist: Avril Lavigne <br>Release date:2002.8.27.</div>
+            </div>
+        </div>
+    </div>
+
+    <br><div class="footer">
+        <div class="social-media-icons">
+            <img src="img/777.png" alt="Facebook">
+            <img src="img/aa.png" alt="Twitter">
+            <img src="img/hh.png" alt="Instagram">
+        </div>
+        <p>© 2024 bandband. All Rights Reserved.</p>
+    </div>
+    <script>
+        // 앨범 카드 요소들을 선택합니다.
+        const albumCards = document.querySelectorAll('.album-card');
+
+// 각 앨범 카드에 클릭 이벤트 리스너를 추가합니다.
+albumCards.forEach((card) => {
+    const albumImage = card.querySelector('.album-image');
+    const albumName = card.querySelector('.album-name');
+    const albumDescription = card.querySelector('.album-description');
+
+    // 앨범 사진을 클릭했을 때 모달 창을 표시합니다.
+    albumImage.addEventListener('click', (event) => {
+        event.stopPropagation();  // 이벤트 버블링을 방지합니다.
+
+        const modalContent = `
+            <div class="modal">
+                <img src="${albumImage.src}" alt="${albumImage.alt}">
+                <div class="modal-text">
+                    <h2>${albumName.textContent}</h2>
+                    <p>${albumDescription.textContent}</p>
+                </div>
+            </div>
+        `;
+
+        // 모달 창을 body에 추가합니다.
+        document.body.insertAdjacentHTML('beforeend', modalContent);
+
+        // 모달 창을 닫기 위해 document에 클릭 이벤트 리스너를 추가합니다.
+        document.querySelector('.modal').addEventListener('click', closeModal);
+    });
+});
+
+function closeModal(event) {
+    const modal = document.querySelector('.modal');
+    // 모달 외부를 클릭했을 때와 모달 내부의 이미지를 클릭했을 때 모달을 닫습니다.
+    if (event.target === modal || event.target.tagName === 'IMG') {
+        modal.remove();
+        // 클릭 이벤트 리스너를 제거합니다.
+        modal.removeEventListener('click', closeModal);
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.star');
+    const ratingValue = document.querySelector('.rating-value');
+    let savedRating = localStorage.getItem('userRating'); // 로컬 저장소에서 사용자의 평점을 가져옵니다.
+
+    // 페이지 로드 시 로컬 저장소에서 저장된 사용자의 평점을 별에 반영합니다.
+    if(savedRating) {
+        highlightStars(savedRating);
+        ratingValue.textContent = savedRating;
+    }
+
+    // 별에 마우스 호버 했을 때
+    stars.forEach((star) => {
+        star.addEventListener('mouseover', (e) => {
+            const value = e.target.getAttribute('data-value');
+            highlightStars(value);
+        });
+    });
+
+    // 별에서 마우스 떼었을 때
+    stars.forEach((star) => {
+        star.addEventListener('mouseout', () => {
+            if(savedRating) {
+                highlightStars(savedRating); // 저장된 평점으로 별을 강조합니다.
+            } else {
+                resetStars(); // 저장된 평점이 없을 경우 별을 초기화합니다.
+            }
+        });
+    });
+
+    // 별을 클릭했을 때
+    stars.forEach((star) => {
+        star.addEventListener('click', (e) => {
+            const value = e.target.getAttribute('data-value');
+            ratingValue.textContent = value;
+            highlightStars(value);
+            localStorage.setItem('userRating', value); // 사용자의 평점을 로컬 저장소에 저장합니다.
+            savedRating = value; // 저장된 평점을 업데이트합니다.
+        });
+    });
+
+    // 별 강조 함수
+    function highlightStars(value) {
+        stars.forEach((star, index) => {
+            if (index < value) {
+                star.style.color = '#ff4500';
+            } else {
+                star.style.color = '#ccc';
+            }
+        });
+    }
+
+    // 별 초기화 함수
+    function resetStars() {
+        stars.forEach((star) => {
+            star.style.color = '#ccc';
+        });
+    }
+});
+    </script>
+    
+    
+</body>
+</html>
